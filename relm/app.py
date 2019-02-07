@@ -69,7 +69,7 @@ class Jira(object):
 
     def __init__(self):
         self._cfg = config
-        self._url = "%s/rest/api/2/search" % self._cfg['JiraUrl']
+        self._url = "%s/rest/api/latest/search" % self._cfg['JiraUrl']
         self._project = self._cfg['JiraProject']
         self._headers = {
             'authorization': 'Basic %s' % self._cfg['JiraAuth'],
