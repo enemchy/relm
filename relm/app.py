@@ -125,7 +125,7 @@ class Jira(object):
 
 
 def contain_in_branches(commit_hash):
-    return repo.git.branch("-r", "--contains", "%s" % commit_hash) \
+    return repo.git.branch("-r", "--contains", "%s" % commit_hash.strip()) \
         .replace(" ", ""). \
         replace("origin/", "") \
         .split('\n')
@@ -212,7 +212,7 @@ def run(args, jira):
     print('---issues with branches not found---')
     all_commits = repo.git.log(["--all", "--oneline"]).split('\n')
     for issue in not_exists:
-        branches = [contain_in_branches(com[:9])
+        branches = [contain_in_branches(com[:8])
                     for com in all_commits if issue in com]
         uniq_branches = set(sum(branches, []))
         msg = "{0} belong to {1}".format(issue, uniq_branches)
