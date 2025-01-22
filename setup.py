@@ -19,7 +19,7 @@ setup(
     url='',
     license='Apache License 2.0',
     author='enemchy',
-    author_email='dzenkir@gmail.com',
+    author_email='...@gmail.com',
     description='Release Management Tool',
     install_requires=install_requires,
     entry_points="""
